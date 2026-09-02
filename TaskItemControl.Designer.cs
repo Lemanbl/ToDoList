@@ -73,7 +73,6 @@
             this.lblTask.Name = "lblTask";
             this.lblTask.Size = new System.Drawing.Size(302, 35);
             this.lblTask.TabIndex = 1;
-            this.lblTask.Click += new System.EventHandler(this.lblTask_Click);
             // 
             // TaskItemControl
             // 

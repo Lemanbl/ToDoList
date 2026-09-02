@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace ToDoList
 
 {
-    internal class TaskItem
+    public class TaskItem
     {
         public bool IsStarred { get; set; }
         public bool IsDone { get; set; }

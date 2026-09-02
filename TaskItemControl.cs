@@ -27,7 +27,10 @@ namespace ToDoList
         public event EventHandler StateChanged;
         private void CheckboxChanged(object sender, EventArgs e)
         {
-            StateChanged.Invoke(this, EventArgs.Empty);
+            if (StateChanged != null)
+            {
+                StateChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void StarClicked(object sender, EventArgs e)
@@ -42,20 +45,29 @@ namespace ToDoList
                 star.BackgroundImage = Image.FromFile(@"star1.png");
             }
             star.BackgroundImageLayout = ImageLayout.Stretch;
-            StateChanged.Invoke(this, EventArgs.Empty);
+            if (StateChanged != null)
+            {
+                StateChanged.Invoke(this, EventArgs.Empty);
+            }
         }
-        public TaskItemControl()
+        public TaskItemControl(string taskText)
         {
             InitializeComponent();
-            //TaskText = taskText;
+            TaskText = taskText;
             chkDone.CheckedChanged += CheckboxChanged;
             star.Click += StarClicked;
 
         }
-
-        private void lblTask_Click(object sender, EventArgs e)
+        public TaskItemControl(TaskItem taskItem)
         {
-
+            InitializeComponent();
+            TaskText = taskItem.Text;
+            IsDone= taskItem.IsDone;
+            IsStarred= taskItem.IsStarred;
+            chkDone.CheckedChanged += CheckboxChanged;
+            star.Click += StarClicked;
         }
+
+       
     }
 }

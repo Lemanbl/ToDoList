@@ -31,17 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.NewTask = new System.Windows.Forms.TextBox();
             this.ListnameLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CompletedTasks = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddTaskBtn = new System.Windows.Forms.Button();
+            this.RightFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RightPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listBox = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddListBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -65,22 +66,34 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(973, 608);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1006, 644);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // LeftPanel
             // 
             this.LeftPanel.BackColor = System.Drawing.Color.Azure;
+            this.LeftPanel.Controls.Add(this.NewTask);
             this.LeftPanel.Controls.Add(this.ListnameLbl);
             this.LeftPanel.Controls.Add(this.label2);
             this.LeftPanel.Controls.Add(this.CompletedTasks);
-            this.LeftPanel.Controls.Add(this.button1);
-            this.LeftPanel.Controls.Add(this.flowLayoutPanel2);
+            this.LeftPanel.Controls.Add(this.AddTaskBtn);
+            this.LeftPanel.Controls.Add(this.RightFlowPanel);
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LeftPanel.Location = new System.Drawing.Point(392, 3);
+            this.LeftPanel.Location = new System.Drawing.Point(405, 3);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(578, 602);
+            this.LeftPanel.Size = new System.Drawing.Size(598, 638);
             this.LeftPanel.TabIndex = 0;
+            // 
+            // NewTask
+            // 
+            this.NewTask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewTask.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewTask.Location = new System.Drawing.Point(48, 585);
+            this.NewTask.Multiline = true;
+            this.NewTask.Name = "NewTask";
+            this.NewTask.Size = new System.Drawing.Size(541, 39);
+            this.NewTask.TabIndex = 15;
             // 
             // ListnameLbl
             // 
@@ -111,31 +124,31 @@
             this.CompletedTasks.Size = new System.Drawing.Size(107, 42);
             this.CompletedTasks.TabIndex = 12;
             // 
-            // button1
+            // AddTaskBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.Location = new System.Drawing.Point(18, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(557, 44);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "+ Add a new task";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.AddTaskBtn_Click);
+            this.AddTaskBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddTaskBtn.BackColor = System.Drawing.Color.Azure;
+            this.AddTaskBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddTaskBtn.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTaskBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.AddTaskBtn.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.AddTaskBtn.Location = new System.Drawing.Point(3, 582);
+            this.AddTaskBtn.Name = "AddTaskBtn";
+            this.AddTaskBtn.Size = new System.Drawing.Size(43, 44);
+            this.AddTaskBtn.TabIndex = 11;
+            this.AddTaskBtn.Text = "+ ";
+            this.AddTaskBtn.UseVisualStyleBackColor = false;
+            this.AddTaskBtn.Click += new System.EventHandler(this.AddTaskBtn_Click);
             // 
-            // flowLayoutPanel2
+            // RightFlowPanel
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 175);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(581, 420);
-            this.flowLayoutPanel2.TabIndex = 10;
-            this.flowLayoutPanel2.WrapContents = false;
+            this.RightFlowPanel.AutoScroll = true;
+            this.RightFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.RightFlowPanel.Location = new System.Drawing.Point(0, 144);
+            this.RightFlowPanel.Name = "RightFlowPanel";
+            this.RightFlowPanel.Size = new System.Drawing.Size(581, 396);
+            this.RightFlowPanel.TabIndex = 10;
+            this.RightFlowPanel.WrapContents = false;
             // 
             // RightPanel
             // 
@@ -143,14 +156,14 @@
             this.RightPanel.Controls.Add(this.flowLayoutPanel1);
             this.RightPanel.Controls.Add(this.pictureBox1);
             this.RightPanel.Controls.Add(this.button4);
-            this.RightPanel.Controls.Add(this.button3);
+            this.RightPanel.Controls.Add(this.AddListBtn);
             this.RightPanel.Controls.Add(this.label1);
             this.RightPanel.Controls.Add(this.monthCalendar1);
             this.RightPanel.Controls.Add(this.dateTimePicker1);
             this.RightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RightPanel.Location = new System.Drawing.Point(3, 3);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(383, 602);
+            this.RightPanel.Size = new System.Drawing.Size(396, 638);
             this.RightPanel.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -159,7 +172,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.listBox);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 233);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 251);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(380, 97);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -174,13 +187,11 @@
             this.listBox.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 35;
-            this.listBox.Items.AddRange(new object[] {
-            "List1"});
             this.listBox.Location = new System.Drawing.Point(3, 3);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(374, 74);
             this.listBox.TabIndex = 0;
-            this.listBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_MouseClick);
+            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -188,7 +199,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Azure;
             this.pictureBox1.BackgroundImage = global::ToDoList.Properties.Resources.star;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(331, 130);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 35);
             this.pictureBox1.TabIndex = 8;
@@ -204,28 +215,28 @@
             this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button4.Location = new System.Drawing.Point(19, 125);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(345, 44);
+            this.button4.Size = new System.Drawing.Size(358, 44);
             this.button4.TabIndex = 5;
             this.button4.Text = "important tasks";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // AddListBtn
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AddListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Azure;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.Location = new System.Drawing.Point(19, 175);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(345, 44);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "+ add new list";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.AddListBtn_Click);
+            this.AddListBtn.BackColor = System.Drawing.Color.Azure;
+            this.AddListBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddListBtn.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddListBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.AddListBtn.Location = new System.Drawing.Point(19, 175);
+            this.AddListBtn.Name = "AddListBtn";
+            this.AddListBtn.Size = new System.Drawing.Size(358, 44);
+            this.AddListBtn.TabIndex = 4;
+            this.AddListBtn.Text = "+ add new list";
+            this.AddListBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddListBtn.UseVisualStyleBackColor = false;
+            this.AddListBtn.Click += new System.EventHandler(this.AddListBtn_Click);
             // 
             // label1
             // 
@@ -243,7 +254,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.monthCalendar1.Location = new System.Drawing.Point(37, 342);
+            this.monthCalendar1.Location = new System.Drawing.Point(37, 378);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
             // 
@@ -261,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(973, 608);
+            this.ClientSize = new System.Drawing.Size(1006, 644);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -269,6 +280,7 @@
             this.Text = "TO-DO list";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.LeftPanel.ResumeLayout(false);
+            this.LeftPanel.PerformLayout();
             this.RightPanel.ResumeLayout(false);
             this.RightPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -286,15 +298,16 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddListBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel RightFlowPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListBox listBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddTaskBtn;
         private System.Windows.Forms.Label CompletedTasks;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ListnameLbl;
+        private System.Windows.Forms.TextBox NewTask;
     }
 }
 

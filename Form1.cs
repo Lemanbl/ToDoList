@@ -23,22 +23,42 @@ namespace ToDoList
             var name = (addListForm.ShowDialog() == DialogResult.OK) ? addListForm.ListName : null;
             if(!string.IsNullOrEmpty(name) && !allLists.ContainsKey(name))
             {
+                //Adding Key
                 allLists.Add(name, new List<TaskItem>());
                 listBox.Items.Add(name);
             }
         }
 
-        private void listBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            ListnameLbl.Text=listBox.SelectedItem.ToString();
-        }
-        TaskItemControl taskItemControl = new TaskItemControl();
+
         private void AddTaskBtn_Click(object sender, EventArgs e)
         {
+            var task = NewTask.Text.ToString();
             if (listBox.SelectedIndex != -1)
             {
-                TaskItemControl taskItemControl = new TaskItemControl();
+                var listBoxKey = listBox.Items[listBox.SelectedIndex].ToString();
+                TaskItem taskItem = new TaskItem(false,false,task);
+                allLists[listBoxKey].Add(taskItem);
+                TaskItemControl taskItemControl = new TaskItemControl(task);
+                RightFlowPanel.Controls.Add(taskItemControl);
+                NewTask.Clear();
             }
         }
+        
+        // list selected
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            RightFlowPanel.Controls.Clear();
+            var listBoxKey = listBox.Items[listBox.SelectedIndex].ToString();
+            foreach (var taskitem in allLists[listBoxKey])
+            {
+                if (taskitem != null) {
+                    TaskItemControl control = new TaskItemControl(taskitem);
+                    RightFlowPanel.Controls.Add(control);
+                }
+            }
+            ListnameLbl.Text=listBox.Items[listBox.SelectedIndex].ToString();
+            
+        }
+
     }
 }
