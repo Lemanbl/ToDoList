@@ -38,6 +38,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.chkDone);
             this.panel1.Controls.Add(this.star);
             this.panel1.Controls.Add(this.lblTask);
@@ -60,7 +61,7 @@
             this.star.BackColor = System.Drawing.Color.Azure;
             this.star.BackgroundImage = global::ToDoList.Properties.Resources.star1;
             this.star.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.star.Location = new System.Drawing.Point(364, 12);
+            this.star.Location = new System.Drawing.Point(362, 12);
             this.star.Name = "star";
             this.star.Size = new System.Drawing.Size(35, 35);
             this.star.TabIndex = 2;

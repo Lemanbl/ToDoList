@@ -6,7 +6,6 @@ namespace ToDoList
 {
     public partial class TaskItemControl : UserControl
     {
-
         public string TaskText
         {
             get => lblTask.Text;
@@ -18,11 +17,27 @@ namespace ToDoList
             get => chkDone.Checked;
             set => chkDone.Checked = value;
         }
+        private bool isStarred;
+
         public bool IsStarred
         {
-            get;
-            private set;
-        } = false;
+            get { return isStarred; }
+            private set
+            {
+                isStarred = value;
+
+                if (isStarred)
+                {
+                    star.BackgroundImage = Properties.Resources.star;
+                }
+                else
+                {
+                    star.BackgroundImage = Properties.Resources.star1;
+                }
+
+                star.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+        }
 
         public event EventHandler StateChanged;
         private void CheckboxChanged(object sender, EventArgs e)
@@ -31,20 +46,12 @@ namespace ToDoList
             {
                 StateChanged.Invoke(this, EventArgs.Empty);
             }
+           
         }
 
         private void StarClicked(object sender, EventArgs e)
         {
             IsStarred = !IsStarred;
-            if (IsStarred)
-            {
-                star.BackgroundImage = Image.FromFile(@"star.png");
-            }
-            else
-            {
-                star.BackgroundImage = Image.FromFile(@"star1.png");
-            }
-            star.BackgroundImageLayout = ImageLayout.Stretch;
             if (StateChanged != null)
             {
                 StateChanged.Invoke(this, EventArgs.Empty);

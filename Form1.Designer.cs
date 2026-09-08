@@ -116,10 +116,9 @@
             // 
             // CompletedTasks
             // 
-            this.CompletedTasks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CompletedTasks.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompletedTasks.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.CompletedTasks.Location = new System.Drawing.Point(178, 80);
+            this.CompletedTasks.Location = new System.Drawing.Point(174, 74);
             this.CompletedTasks.Name = "CompletedTasks";
             this.CompletedTasks.Size = new System.Drawing.Size(107, 42);
             this.CompletedTasks.TabIndex = 12;
