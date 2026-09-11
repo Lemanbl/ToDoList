@@ -15,7 +15,7 @@ namespace ToDoList
         {
             IsStarred = isStarred;
             IsDone = isDone;
-            Text = text;
+            Text = text; 
         }
     }
 

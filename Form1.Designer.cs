@@ -41,7 +41,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listBox = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ImportantTasksBtn = new System.Windows.Forms.Button();
             this.AddListBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -118,10 +118,11 @@
             // 
             this.CompletedTasks.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompletedTasks.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.CompletedTasks.Location = new System.Drawing.Point(174, 74);
+            this.CompletedTasks.Location = new System.Drawing.Point(174, 79);
             this.CompletedTasks.Name = "CompletedTasks";
             this.CompletedTasks.Size = new System.Drawing.Size(107, 42);
             this.CompletedTasks.TabIndex = 12;
+            this.CompletedTasks.Text = "0";
             // 
             // AddTaskBtn
             // 
@@ -154,7 +155,7 @@
             this.RightPanel.BackColor = System.Drawing.Color.LightCyan;
             this.RightPanel.Controls.Add(this.flowLayoutPanel1);
             this.RightPanel.Controls.Add(this.pictureBox1);
-            this.RightPanel.Controls.Add(this.button4);
+            this.RightPanel.Controls.Add(this.ImportantTasksBtn);
             this.RightPanel.Controls.Add(this.AddListBtn);
             this.RightPanel.Controls.Add(this.label1);
             this.RightPanel.Controls.Add(this.monthCalendar1);
@@ -204,21 +205,22 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // button4
+            // ImportantTasksBtn
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ImportantTasksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Azure;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.Location = new System.Drawing.Point(19, 125);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(358, 44);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "important tasks";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
+            this.ImportantTasksBtn.BackColor = System.Drawing.Color.Azure;
+            this.ImportantTasksBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ImportantTasksBtn.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportantTasksBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.ImportantTasksBtn.Location = new System.Drawing.Point(19, 125);
+            this.ImportantTasksBtn.Name = "ImportantTasksBtn";
+            this.ImportantTasksBtn.Size = new System.Drawing.Size(358, 44);
+            this.ImportantTasksBtn.TabIndex = 5;
+            this.ImportantTasksBtn.Text = "important tasks";
+            this.ImportantTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ImportantTasksBtn.UseVisualStyleBackColor = false;
+            this.ImportantTasksBtn.Click += new System.EventHandler(this.ImportantTasksBtn_Click);
             // 
             // AddListBtn
             // 
@@ -296,7 +298,7 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ImportantTasksBtn;
         private System.Windows.Forms.Button AddListBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel RightFlowPanel;
