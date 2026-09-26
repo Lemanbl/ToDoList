@@ -98,7 +98,7 @@
             // ListnameLbl
             // 
             this.ListnameLbl.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListnameLbl.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.ListnameLbl.ForeColor = System.Drawing.Color.MediumVioletRed;
             this.ListnameLbl.Location = new System.Drawing.Point(15, 17);
             this.ListnameLbl.Name = "ListnameLbl";
             this.ListnameLbl.Size = new System.Drawing.Size(289, 41);
@@ -276,6 +276,7 @@
             this.ClientSize = new System.Drawing.Size(1006, 644);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TO-DO list";

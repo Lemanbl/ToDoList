@@ -42,9 +42,13 @@ namespace ToDoList
         private void CheckboxChanged(object sender, EventArgs e)
         {
            taskItem.IsDone= chkDone.Checked;
+            if (StateChanged != null)
+            {
+                StateChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        public EventHandler StateChanged;
+        public event EventHandler StateChanged;
         private void StarClicked(object sender, EventArgs e)
         {
             IsStarred = !IsStarred;

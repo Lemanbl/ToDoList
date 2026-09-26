@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace ToDoList
-{ 
+{
     public partial class Form1 : Form
     {
         public Form1()
@@ -22,8 +22,7 @@ namespace ToDoList
             AddListForm addListForm = new AddListForm();
             var name = (addListForm.ShowDialog() == DialogResult.OK) ? addListForm.ListName : null;
             if(!string.IsNullOrEmpty(name) && !allLists.ContainsKey(name))
-            {
-                //Adding Key
+            { 
                 allLists.Add(name, new List<TaskItem>());
                 listBox.Items.Add(name);
             }
@@ -37,52 +36,62 @@ namespace ToDoList
                 TaskItem taskItem = new TaskItem(false, false, task);
                 allLists[listBoxKey].Add(taskItem);
                 TaskItemControl taskItemControl = new TaskItemControl(taskItem);
+                taskItemControl.StateChanged +=(s,ev)=> {
+                    Count(listBoxKey);
+                } ;
                 RightFlowPanel.Controls.Add(taskItemControl);
                 NewTask.Clear();
             }
             else MessageBox.Show("Please select the list or add the task!", "Error",MessageBoxButtons.OK , MessageBoxIcon.Warning);
         }
-        // list selected
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             RightFlowPanel.Controls.Clear();
-            LoadTasksForList();
-            
+            LoadTasksForList();            
         }
         private void LoadTasksForList()
         {
+            if (listBox.SelectedIndex == -1) return;
             ListnameLbl.Text = listBox.Items[listBox.SelectedIndex].ToString();
             var listBoxKey = listBox.Items[listBox.SelectedIndex].ToString();
             foreach (var taskitem in allLists[listBoxKey])
             {
                 TaskItemControl control = new TaskItemControl(taskitem);
+                control.StateChanged += (s, ev) =>
+                {
+                    MessageBox.Show("StateChanged işləyir");
+                    Count(listBoxKey);
+                };
                 RightFlowPanel.Controls.Add(control);
             }
         }
         private void ImportantTasksBtn_Click(object sender, EventArgs e)
         {
-            RightFlowPanel.Controls.Clear();
             ListnameLbl.Text = "Important Tasks";
-            importantTasks=GetTasks();
-            foreach (var task in importantTasks) {
+            LoadImportantTasks();
+        }
+        private void LoadImportantTasks()
+        {
+            RightFlowPanel.Controls.Clear();
+            importantTasks = allLists.Values.SelectMany(taskList => taskList).Where(task=>task.IsStarred).ToList();
+            foreach (var task in importantTasks)
+            {
                 TaskItemControl control = new TaskItemControl(task);
                 control.StateChanged += (s, ev) =>
                 {
-                    if (task.IsStarred)
+                    if (!task.IsStarred)
                     {
-                        importantTasks.Add(task);
+                        importantTasks.Remove(task);
                     }
-                    else importantTasks.Remove(task);
                 };
                 RightFlowPanel.Controls.Add(control);
             }
-
-            
-            
         }
-        private List<TaskItem> GetTasks()
+        private void Count(string currentListName)
         {
-            return allLists.Values.SelectMany(taskList=>taskList).ToList();
+            if (listBox.SelectedIndex == -1) return;
+            int count = allLists[currentListName].Count(task => task.IsDone);
+            CompletedTasks.Text = count.ToString();
         }
     }
 }
